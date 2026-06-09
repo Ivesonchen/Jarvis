@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Javis tray / monochrome variant of the brand icon.
+
+  Transparent background, white glyph only — designed to read at 16–22px in
+  both light and dark menubars. The glow + connectivity ring from the full
+  icon are dropped because they collapse to noise at small sizes; we keep
+  just the J shape and the floating dot. Re-run `pnpm icons` after editing.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <path d="M135 55V115C135 137.091 117.091 155 95 155C72.9086 155 55 137.091 55 115"
+        stroke="#ffffff" stroke-width="20" stroke-linecap="round" />
+  <circle cx="135" cy="55" r="11" fill="#ffffff" />
+</svg>

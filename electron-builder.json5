@@ -1,0 +1,48 @@
+{
+  // electron-builder config — schema: https://www.electron.build/configuration/configuration
+  "appId": "com.iveso.javis",
+  "productName": "Javis",
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+  ],
+  // Ship the rasterized icons / tray bitmaps alongside the app so the
+  // runtime tray loader and the renderer favicon both find them under
+  // `process.resourcesPath`.
+  "extraResources": [
+    {
+      "from": "resources",
+      "to": ".",
+      "filter": ["icon.png", "icon.ico", "tray.png", "tray@2x.png"]
+    }
+  ],
+  // The Copilot CLI binary must live outside the asar archive — Electron can't
+  // exec from inside .asar. asarUnpack keeps the @github/copilot-* platform
+  // packages on the real filesystem at resources/app.asar.unpacked/.
+  "asarUnpack": [
+    "node_modules/@github/copilot-sdk/**",
+    "node_modules/@github/copilot-darwin-arm64/**",
+    "node_modules/@github/copilot-darwin-x64/**",
+    "node_modules/@github/copilot-win32-arm64/**",
+    "node_modules/@github/copilot-win32-x64/**",
+  ],
+  "mac": {
+    "target": ["dmg"],
+    "icon": "resources/icon.png",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+  },
+  "win": {
+    "target": ["nsis"],
+    "icon": "resources/icon.ico",
+    "artifactName": "${productName}-${version}-Setup.${ext}",
+  },
+  "linux": {
+    "target": ["AppImage"],
+    "icon": "resources/icon.png",
+    "artifactName": "${productName}-${version}.${ext}",
+  },
+}
+

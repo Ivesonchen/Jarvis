@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Javis app icon — modern geometric "J" with a cyan/azure glow on near-black,
+  ringed by a faint dashed connectivity orbit. Provided by design.
+
+  The `<animate>` element is harmless in raster output (librsvg renders the
+  initial state). Re-run `pnpm icons` after editing.
+-->
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="modernGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00F2FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4FACFE;stop-opacity:1" />
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Sleek, minimalist background -->
+  <rect width="200" height="200" rx="48" fill="#05070A" />
+
+  <!-- Modern Geometric 'J' -->
+  <path d="M135 55V115C135 137.091 117.091 155 95 155C72.9086 155 55 137.091 55 115"
+        stroke="url(#modernGrad)" stroke-width="14" stroke-linecap="round"
+        filter="url(#softGlow)" opacity="0.9" />
+
+  <!-- Floating Precision Dot (Intelligence core) -->
+  <circle cx="135" cy="55" r="7" fill="white" filter="url(#softGlow)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Abstract connectivity ring -->
+  <circle cx="95" cy="115" r="75" stroke="white" stroke-width="0.5"
+          stroke-dasharray="2 10" opacity="0.2" />
+</svg>

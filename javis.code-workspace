@@ -1,0 +1,50 @@
+{
+  "folders": [
+    {
+      "name": "Javis (project)",
+      "path": "."
+    },
+    {
+      "name": "CatClaw (reference, read-only)",
+      "path": "../CatClaw"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/dist-electron": true
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/dist-electron": true,
+      "**/pnpm-lock.yaml": true
+    },
+    "js/ts.tsdk.path": "node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    // Treat the CatClaw folder as reference-only so accidental edits aren't auto-saved.
+    "files.readonlyInclude": {
+      "../CatClaw/**": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "vitest.explorer",
+      "github.copilot",
+      "github.copilot-chat"
+    ]
+  }
+}
