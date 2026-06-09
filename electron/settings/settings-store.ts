@@ -1,5 +1,5 @@
 /**
- * Persistent app settings at `~/.javis/settings.json`. Atomic writes,
+ * Persistent app settings at `~/.jarvis/settings.json`. Atomic writes,
  * zod-validated. Falls back to defaults if the file is missing/invalid
  * rather than crashing the app at boot — better to lose preferences than
  * to leave the user with a dead window.

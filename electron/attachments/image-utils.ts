@@ -1,6 +1,6 @@
 /**
  * Image-attachment utilities. Saves pasted/dropped images under
- * `~/.javis/attachments/<sessionId>/<uuid>.<ext>` (mode 0600) so the SDK
+ * `~/.jarvis/attachments/<sessionId>/<uuid>.<ext>` (mode 0600) so the SDK
  * can attach them by absolute path.
  */
 import { randomUUID } from "node:crypto";

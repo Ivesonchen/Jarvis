@@ -47,7 +47,7 @@ function createWindow(): void {
     height: 800,
     minWidth: 800,
     minHeight: 500,
-    title: "Javis",
+    title: "Jarvis",
     backgroundColor: "#0a0a0a",
     autoHideMenuBar: true,
     // Windows uses the .ico packed by electron-builder; on Linux we have to

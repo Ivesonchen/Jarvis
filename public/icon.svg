@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Javis app icon — modern geometric "J" with a cyan/azure glow on near-black,
+  Jarvis app icon — modern geometric "J" with a cyan/azure glow on near-black,
   ringed by a faint dashed connectivity orbit. Provided by design.
 
   The `<animate>` element is harmless in raster output (librsvg renders the

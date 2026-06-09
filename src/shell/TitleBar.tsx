@@ -44,8 +44,8 @@ export default function TitleBar({ onToggleSidebar }: Props) {
             {/* Centered brand. The wrapper stays draggable so users can grab
               anywhere outside the badge to move the window. */}
             <div className="pointer-events-none flex flex-1 items-center justify-center gap-2">
-                <span className="text-sm font-medium text-(--foreground)">Javis</span>
-                <span className="javis-brand-gradient rounded-md px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-black">
+                <span className="text-sm font-medium text-(--foreground)">Jarvis</span>
+                <span className="jarvis-brand-gradient rounded-md px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-black">
                     DEV
                 </span>
             </div>

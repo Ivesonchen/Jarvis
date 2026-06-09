@@ -1,7 +1,7 @@
 /**
- * Filesystem paths used by Javis.
+ * Filesystem paths used by Jarvis.
  *
- * All state lives under `~/.javis/` on every platform — keeps the layout
+ * All state lives under `~/.jarvis/` on every platform — keeps the layout
  * greppable across machines and mirrors CatClaw's `~/.copilot/` convention.
  *
  * `app.getPath("userData")` would be more "platform-idiomatic" (AppData on
@@ -11,7 +11,7 @@ import * as fs from "node:fs";
 import * as os from "node:os";
 import * as path from "node:path";
 
-const ROOT_DIRNAME = ".javis";
+const ROOT_DIRNAME = ".jarvis";
 
 let cachedDataDir: string | null = null;
 

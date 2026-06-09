@@ -147,7 +147,7 @@ export type PermissionResponseAction = "allow" | "allow-session" | "allow-always
 
 /** Image attachment surfaced to the renderer + threaded through chat:send. */
 export interface ChatAttachment {
-    /** Absolute path on disk under `~/.javis/attachments/<sessionId>/`. */
+    /** Absolute path on disk under `~/.jarvis/attachments/<sessionId>/`. */
     path: string;
     mimeType: string;
     byteSize: number;
@@ -179,7 +179,7 @@ export interface IpcInvokeMap {
     "auth:signOut": () => Promise<IpcResult>;
 
     // ── sessions (phase 2) ──
-    /** List all sessions known to Javis (from local index). */
+    /** List all sessions known to Jarvis (from local index). */
     "sessions:list": () => Promise<IpcResult<{ sessions: SessionSummary[] }>>;
     /** Create a brand-new session, returning its id. */
     "sessions:create": () => Promise<IpcResult<{ session: SessionSummary }>>;

@@ -1,9 +1,9 @@
 /**
  * Session index persistence.
  *
- * `~/.javis/sessions/sessions-index.json` is the authoritative list for the
+ * `~/.jarvis/sessions/sessions-index.json` is the authoritative list for the
  * UI. The Copilot SDK persists its own session state under `~/.copilot/`,
- * but Javis-specific metadata (the user-visible title, model history, sort
+ * but Jarvis-specific metadata (the user-visible title, model history, sort
  * order) lives here.
  *
  * Mirrors the spirit of CatClaw's session index but kept intentionally small

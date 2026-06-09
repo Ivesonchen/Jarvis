@@ -55,7 +55,7 @@ export default function SignInPage() {
                         Sign in to GitHub
                     </CardTitle>
                     <CardDescription>
-                        Javis uses your GitHub Copilot subscription. Sign in once and we'll keep you logged in.
+                        Jarvis uses your GitHub Copilot subscription. Sign in once and we'll keep you logged in.
                     </CardDescription>
                 </CardHeader>
 

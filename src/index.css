@@ -229,7 +229,7 @@
 
 /* Brand purple gradient used by the title bar "DEV" badge and a few accent
  * surfaces. Tuned to look right on the dark background. */
-.javis-brand-gradient {
+.jarvis-brand-gradient {
   background: linear-gradient(135deg, #b794f4 0%, #9f7aea 50%, #d6a4f2 100%);
 }
 

@@ -1,10 +1,10 @@
 {
-  "name": "javis",
+  "name": "jarvis",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "main": "dist-electron/main.js",
-  "description": "Javis — desktop GitHub Copilot chat client (Electron + React 19 + TypeScript + Vite). Scaffolded after the CatClaw stack.",
+  "description": "Jarvis — desktop GitHub Copilot chat client (Electron + React 19 + TypeScript + Vite). Scaffolded after the CatClaw stack.",
   "engines": {
     "node": ">=22.18.0"
   },

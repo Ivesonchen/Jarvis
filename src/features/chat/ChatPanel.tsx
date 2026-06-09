@@ -194,7 +194,7 @@ export default function ChatPanel({
                     <div className="text-sm text-(--muted-foreground)">Loading session…</div>
                 ) : messages.length === 0 && !isBusy ? (
                     <div className="flex h-full items-center justify-center text-sm text-(--muted-foreground)">
-                        Ask Javis anything to get started.
+                        Ask Jarvis anything to get started.
                     </div>
                 ) : (
                     <div className="flex flex-col gap-4">

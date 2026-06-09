@@ -43,7 +43,7 @@ export default function MiniApp(): React.ReactElement {
 
     return (
         <div className="flex h-screen w-screen flex-col gap-2 rounded-lg border border-(--border) bg-(--card) p-4 shadow-2xl">
-            <div className="text-xs text-(--muted-foreground)">Javis — Quick Ask (Esc to close)</div>
+            <div className="text-xs text-(--muted-foreground)">Jarvis — Quick Ask (Esc to close)</div>
             <textarea
                 ref={textareaRef}
                 value={text}
@@ -54,7 +54,7 @@ export default function MiniApp(): React.ReactElement {
                         void submit();
                     }
                 }}
-                placeholder="Ask Javis anything…"
+                placeholder="Ask Jarvis anything…"
                 disabled={sending}
                 className="flex-1 resize-none rounded border border-(--border) bg-(--background) p-2 text-sm focus:outline-none focus:ring-1 focus:ring-(--ring)"
             />

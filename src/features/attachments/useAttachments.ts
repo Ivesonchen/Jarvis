@@ -29,7 +29,7 @@ async function fileToBase64(file: File): Promise<string> {
 /**
  * State container for the chat composer's pending image attachments.
  * Saves each File through `attachmentsAPI.saveImage` so the main process
- * holds a copy under `~/.javis/attachments/<sessionId>/`.
+ * holds a copy under `~/.jarvis/attachments/<sessionId>/`.
  */
 export function useAttachments(sessionId: string | undefined) {
     const [pending, setPending] = useState<PendingAttachment[]>([]);

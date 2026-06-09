@@ -185,7 +185,7 @@ export default function SettingsDialog({ open, onOpenChange }: Props) {
                 <DialogHeader>
                     <DialogTitle>Settings</DialogTitle>
                     <DialogDescription>
-                        Saved to <code className="rounded bg-(--secondary) px-1 py-0.5 text-xs">~/.javis/settings.json</code>
+                        Saved to <code className="rounded bg-(--secondary) px-1 py-0.5 text-xs">~/.jarvis/settings.json</code>
                     </DialogDescription>
                 </DialogHeader>
 

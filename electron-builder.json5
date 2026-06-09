@@ -1,7 +1,7 @@
 {
   // electron-builder config — schema: https://www.electron.build/configuration/configuration
-  "appId": "com.iveso.javis",
-  "productName": "Javis",
+  "appId": "com.iveso.jarvis",
+  "productName": "Jarvis",
   "directories": {
     "output": "release/${version}"
   },

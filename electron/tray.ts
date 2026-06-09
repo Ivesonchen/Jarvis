@@ -50,7 +50,7 @@ export function createTray(actions: TrayActions): Tray | null {
     if (tray) return tray;
     try {
         tray = new Tray(loadTrayIcon());
-        tray.setToolTip("Javis");
+        tray.setToolTip("Jarvis");
         refreshMenu(actions);
         tray.on("click", () => actions.showMain());
         return tray;
@@ -63,8 +63,8 @@ export function createTray(actions: TrayActions): Tray | null {
 export function refreshMenu(actions: TrayActions): void {
     if (!tray) return;
     const menu = Menu.buildFromTemplate([
-        { label: "Show Javis", click: () => actions.showMain() },
-        { label: "Hide Javis", click: () => actions.hideMain() },
+        { label: "Show Jarvis", click: () => actions.showMain() },
+        { label: "Hide Jarvis", click: () => actions.hideMain() },
         { type: "separator" },
         { label: "New chat", click: () => actions.newSession() },
         { label: "Mini mode…", accelerator: "CmdOrCtrl+Shift+Space", click: () => actions.openMiniMode() },
@@ -73,7 +73,7 @@ export function refreshMenu(actions: TrayActions): void {
         { label: "Sign out", click: () => actions.signOut() },
         { type: "separator" },
         { label: `Version ${app.getVersion()}`, enabled: false },
-        { label: "Quit Javis", click: () => actions.quit() },
+        { label: "Quit Jarvis", click: () => actions.quit() },
     ]);
     tray.setContextMenu(menu);
 }

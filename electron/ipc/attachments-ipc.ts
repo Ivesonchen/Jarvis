@@ -1,6 +1,6 @@
 /**
  * IPC handlers for image attachments. Stores images under
- * `~/.javis/attachments/<sessionId>/`, returns absolute paths the renderer
+ * `~/.jarvis/attachments/<sessionId>/`, returns absolute paths the renderer
  * can then thread back into `chat:send`.
  */
 import {

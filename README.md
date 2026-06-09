@@ -1,16 +1,16 @@
-# Javis
+# Jarvis
 
 Desktop GitHub Copilot chat client — Electron + React 19 + TypeScript + Vite, wrapping the [`@github/copilot-sdk`](https://www.npmjs.com/package/@github/copilot-sdk).
 
-Modeled after the [CatClaw](../CatClaw) stack (which is mounted as a read-only reference in `javis.code-workspace`), but written from scratch in this repo. All Microsoft-internal subsystems are intentionally absent.
+Modeled after the [CatClaw](../CatClaw) stack (which is mounted as a read-only reference in `jarvis.code-workspace`), but written from scratch in this repo. All Microsoft-internal subsystems are intentionally absent.
 
 ## Features
 
 - **GitHub device-flow sign-in** with cached credentials.
-- **Multi-session chat** with streaming responses, abort, optimistic rendering, persisted history under `~/.javis/`.
+- **Multi-session chat** with streaming responses, abort, optimistic rendering, persisted history under `~/.jarvis/`.
 - **Model picker** per session, sourced from the SDK.
 - **Settings dialog** — theme (dark/light/system), default model, shell permissions (auto-approve read-only, allow/block patterns, default tier), hotkeys, close-to-tray, launch-on-startup.
-- **Permission engine** for shell/MCP/write/read requests — auto-allow / always-allow / per-session / once / deny, with a JSONL audit log at `~/.javis/audit.log`.
+- **Permission engine** for shell/MCP/write/read requests — auto-allow / always-allow / per-session / once / deny, with a JSONL audit log at `~/.jarvis/audit.log`.
 - **Image attachments** — paste, drag-drop, or pick PNG/JPEG/WEBP/GIF; vision-capable model warning when the current model can't handle them.
 - **System tray** — Show / Hide / New chat / Mini mode / Settings / Sign out / Quit.
 - **Global hotkeys** — show/hide the main window and open mini mode from anywhere.
@@ -41,7 +41,7 @@ Modeled after the [CatClaw](../CatClaw) stack (which is mounted as a read-only r
 
 ### 2. Install dependencies
 
-From the `Javis/` folder:
+From the `Jarvis/` folder:
 
 ```powershell
 pnpm install
@@ -61,7 +61,7 @@ What this does:
 2. Spawns `electron .` which loads the main process and points the renderer at the dev server.
 3. The renderer hot-reloads on source changes in `src/`. Electron-main changes require restarting the command.
 
-On first launch you'll see the **Sign in** screen — click **Sign in with GitHub**, copy the displayed device code, paste it into the browser tab Javis opens, and the app will pick up the session automatically.
+On first launch you'll see the **Sign in** screen — click **Sign in with GitHub**, copy the displayed device code, paste it into the browser tab Jarvis opens, and the app will pick up the session automatically.
 
 ### 4. (Optional) Renderer-only dev loop
 
@@ -79,7 +79,7 @@ pnpm run build        # full: typecheck + vite build + electron-builder installe
 
 ### 6. Data on disk
 
-All Javis state lives under `~/.javis/` (`%USERPROFILE%\.javis\` on Windows), mode `0o700`:
+All Jarvis state lives under `~/.jarvis/` (`%USERPROFILE%\.jarvis\` on Windows), mode `0o700`:
 
 | Path                           | Contents                                                      |
 | ------------------------------ | ------------------------------------------------------------- |
@@ -101,7 +101,7 @@ The Copilot SDK keeps its own credentials under `~/.copilot/`. Sign out clears b
 ## Project layout
 
 ```
-Javis/
+Jarvis/
 ├─ common/              Shared types between main and renderer
 │  ├─ ipc-contract.ts   Single source of truth for IPC channels
 │  ├─ settings-schema.ts
@@ -140,7 +140,7 @@ Javis/
 ├─ tsconfig.json / tsconfig.node.json
 ├─ electron-builder.json5
 ├─ package.json
-└─ javis.code-workspace
+└─ jarvis.code-workspace
 ```
 
 ## Quick-start cheat sheet
@@ -160,4 +160,4 @@ pnpm run build:vite
 
 ## Using CatClaw as a reference
 
-Open `javis.code-workspace` in VS Code. The `CatClaw/` root is mounted **read-only** so you can browse its source for patterns (IPC contract shape, session lifecycle, permission policy structure) without accidentally editing it.
+Open `jarvis.code-workspace` in VS Code. The `CatClaw/` root is mounted **read-only** so you can browse its source for patterns (IPC contract shape, session lifecycle, permission policy structure) without accidentally editing it.
