@@ -2,8 +2,6 @@
 
 Desktop GitHub Copilot chat client — Electron + React 19 + TypeScript + Vite, wrapping the [`@github/copilot-sdk`](https://www.npmjs.com/package/@github/copilot-sdk).
 
-Modeled after the [CatClaw](../CatClaw) stack (which is mounted as a read-only reference in `jarvis.code-workspace`), but written from scratch in this repo. All Microsoft-internal subsystems are intentionally absent.
-
 ## Features
 
 - **GitHub device-flow sign-in** with cached credentials.
@@ -157,7 +155,3 @@ pnpm typecheck
 pnpm test
 pnpm run build:vite
 ```
-
-## Using CatClaw as a reference
-
-Open `jarvis.code-workspace` in VS Code. The `CatClaw/` root is mounted **read-only** so you can browse its source for patterns (IPC contract shape, session lifecycle, permission policy structure) without accidentally editing it.
