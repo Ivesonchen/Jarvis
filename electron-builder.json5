@@ -5,6 +5,15 @@
   "directories": {
     "output": "release/${version}"
   },
+  // Publish artifacts to GitHub Releases when run with `--publish always`.
+  // electron-builder creates a draft release named `v${version}` and uploads
+  // the installer + matching `latest*.yml` update manifest into it.
+  "publish": {
+    "provider": "github",
+    "owner": "Ivesonchen",
+    "repo": "Jarvis",
+    "releaseType": "draft",
+  },
   "files": [
     "dist/**/*",
     "dist-electron/**/*",

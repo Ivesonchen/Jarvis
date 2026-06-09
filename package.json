@@ -14,6 +14,7 @@
     "build": "pnpm run typecheck && vite build && electron-builder",
     "build:vite": "vite build",
     "electron:build": "electron-builder",
+    "release": "vite build && electron-builder --publish always",
     "electron:dev": "vite",
     "electron:prod": "vite build && electron .",
     "preview": "vite preview",

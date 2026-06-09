@@ -1,0 +1,61 @@
+name: Release
+
+# Build the Electron app on every `v*` tag (e.g. `v0.1.0`) and publish the
+# installers to a draft GitHub Release. Promote the draft to a real release
+# from the GitHub UI once you've verified the artifacts.
+#
+# Trigger manually:
+#   git tag v0.1.0 && git push origin v0.1.0
+# or run the workflow from the Actions tab via "Run workflow".
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write # needed by electron-builder to create the release
+
+jobs:
+  build:
+    name: Build (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build & publish to GitHub Release
+        env:
+          # electron-builder reads GH_TOKEN to create the draft release and
+          # upload assets. GITHUB_TOKEN is provisioned automatically per run.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Skip code-signing — there are no certs in CI. Remove these once
+          # you wire up CSC_LINK / CSC_KEY_PASSWORD (and the Apple notarization
+          # env vars on macOS).
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+        run: pnpm release
