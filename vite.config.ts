@@ -1,13 +1,30 @@
-import { copyFileSync } from "node:fs";
+import { copyFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import electron from "vite-plugin-electron";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Copy the hand-written CommonJS preloads into dist-electron/ during any
+// Vite build (incl. CI). vite-plugin-electron's `onstart` hook only fires
+// when the plugin launches Electron in dev — without this, packaged builds
+// from a clean checkout ship an app.asar that's missing preload.cjs, and
+// the renderer crashes on `window.authAPI` being undefined.
+function copyPreloads(): Plugin {
+  return {
+    name: "jarvis:copy-preloads",
+    apply: "build",
+    closeBundle() {
+      mkdirSync("dist-electron", { recursive: true });
+      copyFileSync("electron/preload.cjs", "dist-electron/preload.cjs");
+      copyFileSync("electron/mini-mode-preload.cjs", "dist-electron/mini-mode-preload.cjs");
+    },
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,11 +42,12 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    copyPreloads(),
     electron([
       {
         entry: "electron/main.ts",
         onstart(args) {
-          // Copy the CommonJS preloads alongside the bundled main.
+          // Dev only: the build-time copy plugin handles packaged builds.
           copyFileSync("electron/preload.cjs", "dist-electron/preload.cjs");
           copyFileSync("electron/mini-mode-preload.cjs", "dist-electron/mini-mode-preload.cjs");
           const env = { ...process.env };
