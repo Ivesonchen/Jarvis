@@ -11,6 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Emit relative asset URLs (`./assets/foo.js`) so the packaged renderer can
+  // resolve them under the `file://` protocol — otherwise Vite generates
+  // absolute `/assets/...` paths that resolve to the filesystem root and
+  // cause a black window after installation.
+  base: "./",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
